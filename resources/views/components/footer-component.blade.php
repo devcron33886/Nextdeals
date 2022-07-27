@@ -9,7 +9,7 @@
                             <h3>Want to Become a Real Estate Agent?</h3>
                             <span>We'll help you to grow your career and growth.</span>
                         </div>
-                        <a href="#" class="btn btn-call-to-act">SignUp Today</a>
+                        <a href="{{ route('register') }}" class="btn btn-call-to-act">SignUp Today</a>
                     </div>
 
                 </div>
@@ -27,7 +27,7 @@
                         <img src="{{ asset('assets/img/nextdeals.png') }}" class="img-footer" alt="" />
                         <div class="footer-add">
                             <p>KG 236 ST, KIMIRONKO, GASABO.</p>
-                            <p>+1 246-345-0695</p>
+                            <p>+250 789 638 130</p>
                             <p>info@nextdeals.rw</p>
                         </div>
 
