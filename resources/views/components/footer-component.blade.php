@@ -101,10 +101,10 @@
 
                 <div class="col-lg-6 col-md-6 text-right">
                     <ul class="footer-bottom-social">
-                        <li><a href="#"><i class="ti-facebook"></i></a></li>
-                        <li><a href="#"><i class="ti-twitter"></i></a></li>
-                        <li><a href="#"><i class="ti-instagram"></i></a></li>
-                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                        <li><a href="https://www.facebook.com/nextdesalsrwanda" target="_blank"><i class="lni-facebook"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/nextdealsrwanda/?viewAsMember=true"><i class="lni-linkedin" target="_blank"></i></a></li>
+                        <li><a href="https://www.instagram.com/nextdealsrwanda/" target="_blank"><i class="lni-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/next_deals" target="_blank"><i class="lni-twitter"></i></a></li>
                     </ul>
                 </div>
 
