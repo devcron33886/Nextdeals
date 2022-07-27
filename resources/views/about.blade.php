@@ -37,12 +37,11 @@
                     <div class="story-wrap explore-content">
 
                         <h2>Our Story</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip.</p>
+                        <p>Next Deals was designed to support micro businesses grow through increasing their sales. After
+                            Covid effect that brought unemployment and making it hard for small businesses to bounce back
+                            and do business, Next Deals is here to make it possible to start with low capital and grow for
+                            creators</p>
+                   
 
                     </div>
                 </div>
@@ -260,14 +259,7 @@
                         </div>
                     </div>
 
-                    <div class="icon-mi-left">
-                        <i class="ti-twitter theme-cl"></i>
-                        <div class="icon-mi-left-content">
-                            <h4>Manage your Social & Busness Account Carefully</h4>
-                            <p>If you are an individual client, or just a business startup looking for good backlinks for
-                                your website.</p>
-                        </div>
-                    </div>
+                    
 
                     <div class="icon-mi-left">
                         <i class="ti-layers theme-cl"></i>
