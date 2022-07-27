@@ -293,7 +293,7 @@
 
     <div class="clearfix"></div>
     <!-- ============================ Price Table Start ================================== -->
-    <section>
+    {{-- <section>
         <div class="container">
 
             <div class="row justify-content-center">
@@ -383,7 +383,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- ============================ Price Table End ================================== -->
 
     <!-- ========================== Download App Section =============================== -->
