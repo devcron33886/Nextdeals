@@ -58,9 +58,8 @@
             <div class="container">
                 <div class="simple-search-wrap">
                     <div class="hero-search-2">
-                        <p class="lead-i text-light">Amet consectetur adipisicing <span
-                                class="badge badge-success">New</span></p>
-                        <h2 class="text-light mb-4">Find Your Place<br>of Dream</h2>
+                        <p class="lead-i text-light">Find your Favorite Product</p>
+                        <h2 class="text-light mb-4">And Support the Producers</h2>
                         <div class="pk-input-group">
                             <input type="text" class="email form-control" placeholder="Search for a location">
                             <button class="btn btn-black" type="submit">Go & Search</button>
