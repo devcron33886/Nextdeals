@@ -19,7 +19,7 @@ class HomeController extends Controller
         TwitterCard::setSite('@code_sco');
         $categories=Category::all();
         $tags=Tag::all();
-        $products=Product::all();
-        return view('welcome',compact('products','categories','tags'));
+        $latests=Product::latest()->get();
+        return view('welcome',compact('latests','categories','tags'));
     }
 }

@@ -36,10 +36,14 @@
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <ul class="top-social">
-                            <li><a href="https://www.facebook.com/nextdesalsrwanda" target="_blank"><i class="lni-facebook"></i></a></li>
-                            <li><a href="https://www.linkedin.com/company/nextdealsrwanda/?viewAsMember=true"><i class="lni-linkedin" target="_blank"></i></a></li>
-                            <li><a href="https://www.instagram.com/nextdealsrwanda/" target="_blank"><i class="lni-instagram"></i></a></li>
-                            <li><a href="https://twitter.com/next_deals" target="_blank"><i class="lni-twitter"></i></a></li>
+                            <li><a href="https://www.facebook.com/nextdesalsrwanda" target="_blank"><i
+                                        class="lni-facebook"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/nextdealsrwanda/?viewAsMember=true"><i
+                                        class="lni-linkedin" target="_blank"></i></a></li>
+                            <li><a href="https://www.instagram.com/nextdealsrwanda/" target="_blank"><i
+                                        class="lni-instagram"></i></a></li>
+                            <li><a href="https://twitter.com/next_deals" target="_blank"><i class="lni-twitter"></i></a>
+                            </li>
                         </ul>
                     </div>
 
@@ -257,7 +261,8 @@
                                             <div class="footer-first">
                                             </div>
                                             <div class="footer-flex">
-                                                <a href="{{ route('tag-show', $tag->slug) }}" class="prt-view">View</a>
+                                                <a href="{{ route('tag-show', $tag->slug) }}"
+                                                    class="prt-view">View</a>
                                             </div>
                                         </div>
 
@@ -283,7 +288,78 @@
 
         <div class="clearfix"></div>
 
-        <!-- ============================ Price Table End ================================== -->
+        <section class="bg-whites">
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-10 text-center">
+                        <div class="sec-heading center mb-4">
+                            <h2>Latest Products</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="property-slide">
+                            @foreach ($latests as $latest)
+                                <div class="single-items">
+                                    <div class="property-listing shadow-none property-2 border">
+
+                                        <div class="listing-img-wrapper">
+                                            <div class="list-img-slide">
+                                                <div class="click">
+                                                    @if ($latest->photo)
+                                                        <div><a href="{{ route('product-show', $latest->slug) }}"><img
+                                                                    src="{{ $media->photo->getUrl('preview') }}"
+                                                                    class="img-fluid mx-auto" alt="" /></a>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="listing-detail-wrapper">
+                                            <div class="listing-short-detail-wrap">
+                                                <div class="listing-short-detail">
+
+                                                    <h4 class="listing-name verified"><a
+                                                            href="{{ route('product-show', $latest->slug) }}"
+                                                            class="prt-link-detail">{{ $latest->name }}</a></h4>
+                                                </div>
+                                                <div class="listing-short-detail-flex">
+                                                    <h6 class="listing-card-info-price">
+                                                        RWF {{ number_format($latest->price) }}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="price-features-wrapper">
+                                            <div class="list-fx-features">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="listing-detail-footer">
+                                            <div class="footer-first">
+
+                                            </div>
+                                            <div class="footer-flex">
+                                                <a href="{{ route('product-show', $latest->slug) }}"
+                                                    class="prt-view">View</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- ========================== Download App Section =============================== -->
         <section class="bg-light">

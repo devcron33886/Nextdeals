@@ -83,4 +83,9 @@ class Product extends Model implements HasMedia
         return $this->belongsToMany(Tag::class);
     }
 
+    public function scopeLatest($query)
+    {
+        return $query->where('created_at','>',now()->subDays(15));
+    }
+
 }
