@@ -199,20 +199,9 @@
 
                     </div>
                 </div>
-                <div class="row mt-4 pt-4">
-                    <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        {{-- <a href="{{ route('category-show') }}" class="btn btn-theme-light rounded">Browse More categories
-                        </a> --}}
-                    </div>
-                </div>
-
             </div>
         </section>
-        <!-- ============================ Latest Property For Sale End ================================== -->
         <div class="clearfix"></div>
-        <!-- ============================ All Property ================================== -->
-
-        <!-- ============================ Smart Testimonials ================================== -->
         <section class="bg-orange">
             <div class="container">
 

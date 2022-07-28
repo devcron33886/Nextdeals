@@ -9,7 +9,6 @@ use App\Http\Requests\StoreProductCategoryRequest;
 use App\Http\Requests\UpdateProductCategoryRequest;
 use App\Models\Category;
 use Gate;
-use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -80,7 +79,7 @@ class CategoryController extends Controller
             $category->photo->delete();
         }
 
-        return redirect()->route('admin.product-categories.index');
+        return redirect()->route('admin.categories.index');
     }
 
     public function show(Category $category)
