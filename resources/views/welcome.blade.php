@@ -29,24 +29,23 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="cn-info">
                             <ul>
-                                <li><i class="lni-phone-handset"></i>91 256 584 5748</li>
+                                <li><i class="lni-phone-handset"></i>+250 789 638 130</li>
                                 <li><i class="ti-email"></i>support@nextdeals.rw</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <ul class="top-social">
-                            <li><a href="#"><i class="lni-facebook"></i></a></li>
-                            <li><a href="#"><i class="lni-linkedin"></i></a></li>
-                            <li><a href="#"><i class="lni-instagram"></i></a></li>
-                            <li><a href="#"><i class="lni-twitter"></i></a></li>
+                            <li><a href="https://www.facebook.com/nextdesalsrwanda" target="_blank"><i class="lni-facebook"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/nextdealsrwanda/?viewAsMember=true"><i class="lni-linkedin" target="_blank"></i></a></li>
+                            <li><a href="https://www.instagram.com/nextdealsrwanda/" target="_blank"><i class="lni-instagram"></i></a></li>
+                            <li><a href="https://twitter.com/next_deals" target="_blank"><i class="lni-twitter"></i></a></li>
                         </ul>
                     </div>
 
                 </div>
             </div>
         </div>
-
         <div class="clearfix"></div>
 
         <x-header-component></x-header-component>
@@ -294,7 +293,7 @@
         </section>
 
         <div class="clearfix"></div>
-        
+
         <!-- ============================ Price Table End ================================== -->
 
         <!-- ========================== Download App Section =============================== -->
