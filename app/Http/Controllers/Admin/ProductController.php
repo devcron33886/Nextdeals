@@ -7,12 +7,16 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyProductRequest;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 use App\Models\Location;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductTag;
+use App\Models\Tag;
 use Gate;
 use Illuminate\Http\Request;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -33,15 +37,19 @@ class ProductController extends Controller
     {
         abort_if(Gate::denies('product_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories = ProductCategory::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
 
-        $tags = ProductTag::pluck('name', 'id');
+        $tags = Tag::pluck('name', 'id');
 
         $locations = Location::pluck('name', 'id');
 
         return view('admin.products.create', compact('categories', 'locations', 'tags'));
     }
 
+    /**
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
     public function store(StoreProductRequest $request)
     {
         $product = Product::create($request->all());
@@ -63,9 +71,9 @@ class ProductController extends Controller
     {
         abort_if(Gate::denies('product_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $categories = ProductCategory::pluck('name', 'id');
+        $categories = Category::pluck('name', 'id');
 
-        $tags = ProductTag::pluck('name', 'id');
+        $tags = Tag::pluck('name', 'id');
 
         $locations = Location::pluck('name', 'id');
 
@@ -74,6 +82,10 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('categories', 'locations', 'product', 'tags'));
     }
 
+    /**
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
     public function update(UpdateProductRequest $request, Product $product)
     {
         $product->update($request->all());
@@ -119,15 +131,4 @@ class ProductController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
-    public function storeCKEditorImages(Request $request)
-    {
-        abort_if(Gate::denies('product_create') && Gate::denies('product_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-        $model         = new Product();
-        $model->id     = $request->input('crud_id', 0);
-        $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
-
-        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
-    }
 }
