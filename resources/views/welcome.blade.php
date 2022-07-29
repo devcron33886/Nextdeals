@@ -311,7 +311,7 @@
                                                 <div class="click">
                                                     @if ($latest->photo)
                                                         <div><a href="{{ route('product-show', $latest->slug) }}"><img
-                                                                    src="{{ $media->photo->getUrl('preview') }}"
+                                                                    src="{{ $product->photo->getUrl('preview') }}"
                                                                     class="img-fluid mx-auto" alt="" /></a>
                                                         </div>
                                                     @endif
