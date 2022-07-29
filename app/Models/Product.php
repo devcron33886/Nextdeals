@@ -22,6 +22,9 @@ class Product extends Model implements HasMedia
         'updated_at',
         'deleted_at',
     ];
+    protected $appends=[
+        'photo'
+    ];
 
     protected $fillable = [
         'name',
@@ -61,6 +64,18 @@ class Product extends Model implements HasMedia
     {
         $this->addMediaConversion('thumb')->fit('crop', 250, 250);
         $this->addMediaConversion('preview')->fit('crop', 1400, 700);
+    }
+
+    public function getPhotoAttribute()
+    {
+        $file = $this->getMedia('photo')->last();
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+            $file->preview   = $file->getUrl('preview');
+        }
+
+        return $file;
     }
 
     public function user(): BelongsTo

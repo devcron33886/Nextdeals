@@ -21,7 +21,9 @@ class Category extends Model implements HasMedia
         'updated_at',
         'deleted_at',
     ];
-
+    protected $appends=[
+        'photo'
+    ];
     protected $fillable=[
         'name',
         'slug',
