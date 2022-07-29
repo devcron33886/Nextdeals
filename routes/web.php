@@ -98,4 +98,9 @@ Route::group(['middleware' => ['auth', '2fa']], function () {
     }
 });
 
+Route::group(['prefix' => 'vendor', 'as' => 'vendor.', 'middleware' => ['auth', '2fa', 'vendor']],function (){
+    Route::get('/dashboard',HomeController::class)->name('dashboard');
+    Route::resource('orders',\App\Http\Controllers\Vendors\OrderController::class)->except(['create','store','destroy']);
+});
+
 require __DIR__.'/auth.php';
