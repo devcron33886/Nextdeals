@@ -169,7 +169,7 @@
                                                 <div class="listing-short-detail">
 
                                                     <h4 class="listing-name verified"><a
-                                                            href="{{ route('product-show', $category->slug) }}"
+                                                            href="{{ route('category-show', $category->slug) }}"
                                                             class="prt-link-detail">{{ $category->name }}</a></h4>
                                                 </div>
                                                 <div class="listing-short-detail-flex">
