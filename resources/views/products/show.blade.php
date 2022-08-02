@@ -21,7 +21,10 @@
                         <div class="prt-detail-title-desc">
                             
                             <h3>{{ $product->name }}</h3>
-                            <span><i class="lni-map-marker"></i> {{$product->location->name}}</span>
+                            @foreach($product->locations as $key => $location)
+                                <span><i class="lni-map-marker" style="display: inline-block;"></i> {{$location->name}}</span>
+                            @endforeach
+                            
                             <h3 class="prt-price-fix">RWF {{ number_format($product->price) }}</h3>
                            
                         </div>
