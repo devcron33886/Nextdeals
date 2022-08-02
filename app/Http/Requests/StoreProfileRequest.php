@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Profile;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Response;
 
 class StoreProfileRequest extends FormRequest
 {

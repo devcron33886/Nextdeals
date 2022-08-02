@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Location;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Response;
 
 class UpdateLocationRequest extends FormRequest
 {
@@ -20,7 +18,7 @@ class UpdateLocationRequest extends FormRequest
             'name' => [
                 'string',
                 'required',
-                'unique:locations,name,' . request()->route('location')->id,
+                'unique:locations,name,'.request()->route('location')->id,
             ],
         ];
     }

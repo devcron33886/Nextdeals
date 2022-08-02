@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Artesaos\SEOTools\Facades\SEOTools;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -15,6 +14,7 @@ class CategoryController extends Controller
         SEOTools::opengraph()->setUrl('https://nextdeals.test/categories/'.$category->slug);
         SEOTools::setCanonical('http://nextdeals.test/'.$category->slug);
         SEOTools::twitter()->setSite('@nextdeals');
+
         return view('categories.show');
     }
 }

@@ -12,13 +12,13 @@ class Location extends Model
 {
     use HasFactory,SoftDeletes,Sluggable;
 
-    protected $dates=[
+    protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    protected $fillable=[
+    protected $fillable = [
         'name',
         'slug',
         'created_at',
@@ -26,25 +26,23 @@ class Location extends Model
         'deleted_at',
     ];
 
-    protected $casts=[
-        'created_at'=>'datetime',
-        'updated_at'=>'datetime',
-        'deleted_at'=>'datetime',
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     public function sluggable(): array
     {
         return [
-            'slug'=>[
-                'source'=>'name'
-            ]
+            'slug' => [
+                'source' => 'name',
+            ],
         ];
     }
 
-    public function products():HasMany
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class);
     }
-
-
 }

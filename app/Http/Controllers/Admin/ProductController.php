@@ -10,11 +10,8 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\Product;
-use App\Models\ProductCategory;
-use App\Models\ProductTag;
 use App\Models\Tag;
 use Gate;
-use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -57,7 +54,7 @@ class ProductController extends Controller
         $product->tags()->sync($request->input('tags', []));
         $product->locations()->sync($request->input('locations', []));
         if ($request->input('photo', false)) {
-            $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo'))))->toMediaCollection('photo');
+            $product->addMedia(storage_path('tmp/uploads/'.basename($request->input('photo'))))->toMediaCollection('photo');
         }
 
         if ($media = $request->input('ck-media', false)) {
@@ -93,11 +90,11 @@ class ProductController extends Controller
         $product->tags()->sync($request->input('tags', []));
         $product->locations()->sync($request->input('locations', []));
         if ($request->input('photo', false)) {
-            if (!$product->photo || $request->input('photo') !== $product->photo->file_name) {
+            if (! $product->photo || $request->input('photo') !== $product->photo->file_name) {
                 if ($product->photo) {
                     $product->photo->delete();
                 }
-                $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo'))))->toMediaCollection('photo');
+                $product->addMedia(storage_path('tmp/uploads/'.basename($request->input('photo'))))->toMediaCollection('photo');
             }
         } elseif ($product->photo) {
             $product->photo->delete();
@@ -130,5 +127,4 @@ class ProductController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-
 }

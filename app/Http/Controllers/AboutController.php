@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Artesaos\SEOTools\Facades\SEOTools;
-use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
@@ -14,6 +13,7 @@ class AboutController extends Controller
         SEOTools::opengraph()->setUrl('https://nextdeals.test/about-us');
         SEOTools::setCanonical('http://nextdeals.test/about-us');
         SEOTools::twitter()->setSite('@nextdeals');
+
         return view('about');
     }
 }

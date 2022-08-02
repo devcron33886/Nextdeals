@@ -8,7 +8,6 @@ use App\Http\Requests\StoreShippingTypeRequest;
 use App\Http\Requests\UpdateShippingTypeRequest;
 use App\Models\ShippingType;
 use Gate;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ShippingTypeController extends Controller

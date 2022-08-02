@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use DateTimeInterface;
 use App\Notifications\VerifyUserNotification;
 use Carbon\Carbon;
+use DateTimeInterface;
 use Hash;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -60,9 +60,9 @@ class User extends Authenticatable
         self::created(function (User $user) {
             if (auth()->check()) {
                 $user->verified = 1;
-                $user->verified_at = Carbon::now()->format(config('panel.date_format') . ' ' . config('panel.time_format'));
+                $user->verified_at = Carbon::now()->format(config('panel.date_format').' '.config('panel.time_format'));
                 $user->save();
-            } elseif (!$user->verification_token) {
+            } elseif (! $user->verification_token) {
                 $token = Str::random(64);
                 $usedToken = User::where('verification_token', $token)->first();
 
@@ -75,7 +75,7 @@ class User extends Authenticatable
                 $user->save();
 
                 $registrationRole = config('panel.registration_default_role');
-                if (!$user->roles()->get()->contains($registrationRole)) {
+                if (! $user->roles()->get()->contains($registrationRole)) {
                     $user->roles()->attach($registrationRole);
                 }
 
@@ -88,7 +88,7 @@ class User extends Authenticatable
     {
         $this->timestamps = false;
         $this->two_factor_code = rand(100000, 999999);
-        $this->two_factor_expires_at = now()->addMinutes(15)->format(config('panel.date_format') . ' ' . config('panel.time_format'));
+        $this->two_factor_expires_at = now()->addMinutes(15)->format(config('panel.date_format').' '.config('panel.time_format'));
         $this->save();
     }
 
@@ -107,17 +107,17 @@ class User extends Authenticatable
 
     public function getIsVendorAttribute(): bool
     {
-        return $this->roles()->where('id',2)->exists();
+        return $this->roles()->where('id', 2)->exists();
     }
 
     public function getEmailVerifiedAtAttribute($value): ?string
     {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format').' '.config('panel.time_format')) : null;
     }
 
     public function setEmailVerifiedAtAttribute($value)
     {
-        $this->attributes['email_verified_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['email_verified_at'] = $value ? Carbon::createFromFormat(config('panel.date_format').' '.config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 
     public function setPasswordAttribute($input)
@@ -134,12 +134,12 @@ class User extends Authenticatable
 
     public function getVerifiedAtAttribute($value): ?string
     {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format').' '.config('panel.time_format')) : null;
     }
 
     public function setVerifiedAtAttribute($value)
     {
-        $this->attributes['verified_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['verified_at'] = $value ? Carbon::createFromFormat(config('panel.date_format').' '.config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 
     public function roles(): BelongsToMany
@@ -149,12 +149,12 @@ class User extends Authenticatable
 
     public function getTwoFactorExpiresAtAttribute($value): ?string
     {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format').' '.config('panel.time_format')) : null;
     }
 
     public function setTwoFactorExpiresAtAttribute($value)
     {
-        $this->attributes['two_factor_expires_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['two_factor_expires_at'] = $value ? Carbon::createFromFormat(config('panel.date_format').' '.config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 
     protected function serializeDate(DateTimeInterface $date): string

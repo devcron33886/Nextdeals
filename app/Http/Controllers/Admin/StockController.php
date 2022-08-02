@@ -9,7 +9,6 @@ use App\Http\Requests\UpdateStockRequest;
 use App\Models\Product;
 use App\Models\Stock;
 use Gate;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class StockController extends Controller

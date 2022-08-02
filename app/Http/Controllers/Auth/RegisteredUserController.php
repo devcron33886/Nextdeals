@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 
-
 class RegisteredUserController extends Controller
 {
     /**
@@ -32,7 +31,7 @@ class RegisteredUserController extends Controller
     /**
      * Handle an incoming registration request.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return RedirectResponse
      *
      * @throws ValidationException

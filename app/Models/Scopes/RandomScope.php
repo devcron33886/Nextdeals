@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\Scope;
 
 class RandomScope implements Scope
 {
-
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('created_at','>', now()->subDays(15));
+        $builder->where('created_at', '>', now()->subDays(15));
     }
 }

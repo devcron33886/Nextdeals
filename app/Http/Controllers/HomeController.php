@@ -17,9 +17,10 @@ class HomeController extends Controller
         SEOMeta::setCanonical('https://nextdeals.rw');
         TwitterCard::setTitle('Home');
         TwitterCard::setSite('@code_sco');
-        $categories=Category::all();
-        $tags=Tag::all();
-        $latests=Product::latest()->get();
-        return view('welcome',compact('latests','categories','tags'));
+        $categories = Category::all();
+        $tags = Tag::all();
+        $latests = Product::latest()->get();
+
+        return view('welcome', compact('latests', 'categories', 'tags'));
     }
 }

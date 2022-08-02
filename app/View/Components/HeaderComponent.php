@@ -12,15 +12,14 @@ use Illuminate\View\Component;
 
 class HeaderComponent extends Component
 {
-
     public function __construct()
     {
-
     }
 
     public function render(): View|Factory|Htmlable|string|Closure|Application
     {
-        $categories=Category::all();
-        return view('components.header-component',compact('categories'));
+        $categories = Category::all();
+
+        return view('components.header-component', compact('categories'));
     }
 }

@@ -16,15 +16,17 @@ class Category extends Model implements HasMedia
 {
     use HasFactory,SoftDeletes,Sluggable,InteractsWithMedia;
 
-    protected $dates=[
+    protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-    protected $appends=[
-        'photo'
+
+    protected $appends = [
+        'photo',
     ];
-    protected $fillable=[
+
+    protected $fillable = [
         'name',
         'slug',
         'description',
@@ -34,10 +36,10 @@ class Category extends Model implements HasMedia
         'deleted_at',
     ];
 
-    protected $casts=[
-        'created_at'=>'datetime',
-        'updated_at'=>'datetime',
-        'deleted_at'=>'datetime',
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     /**
@@ -53,9 +55,9 @@ class Category extends Model implements HasMedia
     {
         $file = $this->getMedia('photo')->last();
         if ($file) {
-            $file->url       = $file->getUrl();
+            $file->url = $file->getUrl();
             $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
+            $file->preview = $file->getUrl('preview');
         }
 
         return $file;
@@ -64,13 +66,13 @@ class Category extends Model implements HasMedia
     public function sluggable(): array
     {
         return [
-            'slug'=>[
-                'source'=>'name'
-            ]
+            'slug' => [
+                'source' => 'name',
+            ],
         ];
     }
 
-    public function products():HasMany
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class);
     }

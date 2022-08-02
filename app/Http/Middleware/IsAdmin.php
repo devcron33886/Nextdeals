@@ -10,13 +10,13 @@ class IsAdmin
     /**
      * Handle an incoming request.
      *
-     * @param Request $request
-     * @param Closure $next
+     * @param  Request  $request
+     * @param  Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        if (!auth()->user()->is_admin) {
+        if (! auth()->user()->is_admin) {
             return redirect()->route('welcome');
         }
 

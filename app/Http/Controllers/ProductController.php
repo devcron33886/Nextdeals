@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Artesaos\SEOTools\Facades\SEOTools;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -15,6 +14,7 @@ class ProductController extends Controller
         SEOTools::opengraph()->setUrl('https://nextdeals.test/'.$product->slug);
         SEOTools::setCanonical('http://nextdeals.test/products/'.$product->slug);
         SEOTools::twitter()->setSite('@nextdeals');
-       return view('products.show');
+
+        return view('products.show');
     }
 }

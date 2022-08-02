@@ -7,7 +7,6 @@ use App\Http\Requests\MassDestroyVendorRequest;
 use App\Http\Requests\StoreVendorRequest;
 use App\Http\Requests\UpdateVendorRequest;
 use Gate;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class VendorsController extends Controller

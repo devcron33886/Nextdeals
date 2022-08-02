@@ -22,8 +22,9 @@ class Product extends Model implements HasMedia
         'updated_at',
         'deleted_at',
     ];
-    protected $appends=[
-        'photo'
+
+    protected $appends = [
+        'photo',
     ];
 
     protected $fillable = [
@@ -37,7 +38,6 @@ class Product extends Model implements HasMedia
         'updated_at',
         'deleted_at',
 
-
     ];
 
     protected $casts = [
@@ -46,13 +46,12 @@ class Product extends Model implements HasMedia
         'deleted_at' => 'datetime',
     ];
 
-
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
 
         ];
     }
@@ -70,9 +69,9 @@ class Product extends Model implements HasMedia
     {
         $file = $this->getMedia('photo')->last();
         if ($file) {
-            $file->url       = $file->getUrl();
+            $file->url = $file->getUrl();
             $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
+            $file->preview = $file->getUrl('preview');
         }
 
         return $file;
@@ -100,7 +99,6 @@ class Product extends Model implements HasMedia
 
     public function scopeLatest($query)
     {
-        return $query->where('created_at','>',now()->subDays(15));
+        return $query->where('created_at', '>', now()->subDays(15));
     }
-
 }

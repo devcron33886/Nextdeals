@@ -14,11 +14,11 @@ class ContactController extends Controller
         SEOTools::opengraph()->setUrl('http://nextdeals.test/contact-us');
         SEOTools::setCanonical('http://nextdeals.test/contact-us');
         SEOTools::twitter()->setSite('@nextdeals');
+
         return view('contact');
     }
 
     public function store(Request $request)
     {
-
     }
 }

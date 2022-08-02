@@ -8,7 +8,6 @@ use App\Http\Requests\StoreProductTagRequest;
 use App\Http\Requests\UpdateProductTagRequest;
 use App\Models\Tag;
 use Gate;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class TagController extends Controller

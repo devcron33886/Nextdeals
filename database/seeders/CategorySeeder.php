@@ -14,19 +14,19 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories=[
+        $categories = [
             [
-                'name'=>'Women’s Gifts',
-                'slug'=>'women-s-gifts',
-                'status'=>1
-            ],[
-                'name'=>'Mens’s Gifts',
-                'slug'=>'men-s-gifts',
-                'status'=>1
-            ],[
-                'name'=>'Wedding Gifts',
-                'slug'=>'wedding-gifts',
-                'status'=>1
+                'name' => 'Women’s Gifts',
+                'slug' => 'women-s-gifts',
+                'status' => 1,
+            ], [
+                'name' => 'Mens’s Gifts',
+                'slug' => 'men-s-gifts',
+                'status' => 1,
+            ], [
+                'name' => 'Wedding Gifts',
+                'slug' => 'wedding-gifts',
+                'status' => 1,
             ],
 
         ];

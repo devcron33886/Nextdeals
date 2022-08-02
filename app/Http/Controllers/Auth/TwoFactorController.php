@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckTwoFactorRequest;
 use App\Notifications\TwoFactorCodeNotification;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +27,7 @@ class TwoFactorController extends Controller
         if ($request->input('two_factor_code') == $user->two_factor_code) {
             $user->resetTwoFactorCode();
 
-            $route = (Route::has('frontend.home') && !$user->is_admin) ? 'frontend.home' : 'admin.home';
+            $route = (Route::has('frontend.home') && ! $user->is_admin) ? 'frontend.home' : 'admin.home';
 
             return redirect()->route($route);
         }
