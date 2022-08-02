@@ -15,6 +15,6 @@ class ProductController extends Controller
         SEOTools::setCanonical('http://nextdeals.test/products/'.$product->slug);
         SEOTools::twitter()->setSite('@nextdeals');
 
-        return view('products.show');
+        return view('products.show',compact('product'));
     }
 }
