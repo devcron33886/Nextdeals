@@ -2,11 +2,11 @@
 @section('content')
     <div class="featured_slick_gallery gray">
         <div class="featured_slick_gallery-slide">
-            @if($product->photo)
+            @if ($product->photo)
                 <div class="featured_slick_padd"><a href="#" class="mfp-gallery"><img
-                            src="{{ $product->photo->getUrl('preview')  }}"
-                            style="width:1200 px !important; width: 800px !important; "
-                            class="img-fluid mx-auto" alt=""/></a></div>
+                            src="{{ $product->photo->getUrl('preview') }}"
+                            style="width:1200 px !important; width: 800px !important; " class="img-fluid mx-auto"
+                            alt="" /></a></div>
             @endif
 
 
@@ -19,14 +19,15 @@
 
                     <div class="property_block_wrap style-2 p-4">
                         <div class="prt-detail-title-desc">
-                            
+
                             <h3>{{ $product->name }}</h3>
-                            @foreach($product->locations as $key => $location)
-                                <span><i class="lni-map-marker" style="display: inline-block;"></i> {{$location->name}}</span>
+                            @foreach ($product->locations as $key => $location)
+                                <span><i class="lni-map-marker" style="display: inline-block;"></i>
+                                    {{ $location->name }}</span>
                             @endforeach
-                            
+
                             <h3 class="prt-price-fix">RWF {{ number_format($product->price) }}</h3>
-                           
+
                         </div>
                     </div>
 
@@ -35,13 +36,14 @@
                     <div class="property_block_wrap style-2">
 
                         <div class="property_block_wrap_header">
-                            <a data-bs-toggle="collapse" data-parent="#dsrp" data-bs-target="#clTwo"
-                               aria-controls="clTwo" href="javascript:void(0);" aria-expanded="true"><h4
-                                    class="property_block_title">Description</h4></a>
+                            <a data-bs-toggle="collapse" data-parent="#dsrp" data-bs-target="#clTwo" aria-controls="clTwo"
+                                href="javascript:void(0);" aria-expanded="true">
+                                <h4 class="property_block_title">Description</h4>
+                            </a>
                         </div>
                         <div id="clTwo" class="panel-collapse collapse show" aria-expanded="true">
                             <div class="block-body">
-                                <p>{{$product->description}}</p>
+                                <p>{{ $product->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -70,37 +72,35 @@
                         <!-- Featured Property -->
                         <div class="sidebar-widgets">
 
-                            <h4>Featured Property</h4>
+                            <h4>You May Also Like</h4>
 
                             <div class="sidebar_featured_property">
 
                                 <!-- List Sibar Property -->
-                                {{-- @foreach($relatedHouses as $relatedHouse)
+                                @foreach ($mightAlsoLikes as $like)
                                     <div class="sides_list_property">
                                         <div class="sides_list_property_thumb">
-                                            @foreach($relatedHouse->house_image as $key=>$media)
-                                                <img src="{{ $media->getUrl('preview') }}" class="img-fluid" alt="{{ $relatedHouse->property_title }}">
-                                            @endforeach
+                                            @if ($like->photo)
+                                                <img src="{{ $like->photo->getUrl('preview') }}" class="img-fluid"
+                                                    alt="{{ $like->name }}">
+                                            @endif
                                         </div>
                                         <div class="sides_list_property_detail">
-                                            <h4><a href="{{ route('house',$relatedHouse->slug) }}">{{ $relatedHouse->property_title }}</a></h4>
-                                            <span><i class="ti-location-pin"></i>{{$relatedHouse->location->state}}, {{ $relatedHouse->house_address }}</span>
+                                            <h4><a href="{{ route('product-show', $like->slug) }}">{{ $like->name }}</a>
+                                            </h4>
+                                            @foreach ($product->locations as $key => $location)
+                                                <span><i class="lni-map-marker" style="display: inline-block;"></i>
+                                                    {{ $location->name }}</span>
+                                            @endforeach
                                             <div class="lists_property_price">
-                                                <div class="lists_property_types">
-                                                    @if($house->status==1)
-                                                        <div class="property_types_vlix rent">For Rent</div>
-                                                    @elseif($house->status==2)
-                                                        <div class="property_types_vlix sale">For Sale</div>
-                                                    @endif
 
-                                                </div>
                                                 <div class="lists_property_price_value">
-                                                    <h4>RWF {{ number_format($relatedHouse->price) }}</h4>
+                                                    <h4>RWF {{ number_format($like->price) }}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach --}}
+                                @endforeach
                             </div>
 
                         </div>
@@ -112,4 +112,3 @@
         </div>
     </section>
 @endsection
-

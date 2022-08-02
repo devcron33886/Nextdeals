@@ -14,7 +14,8 @@ class ProductController extends Controller
         SEOTools::opengraph()->setUrl('https://nextdeals.test/'.$product->slug);
         SEOTools::setCanonical('http://nextdeals.test/products/'.$product->slug);
         SEOTools::twitter()->setSite('@nextdeals');
+        $mightLikes=Product::mightAlsoLikes()->get();
 
-        return view('products.show',compact('product'));
+        return view('products.show',compact('product','mightLikes'));
     }
 }
