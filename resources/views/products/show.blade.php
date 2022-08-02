@@ -77,7 +77,7 @@
                             <div class="sidebar_featured_property">
 
                                 <!-- List Sibar Property -->
-                                @foreach ($mightAlsoLikes as $like)
+                                @foreach ($mightLikes as $like)
                                     <div class="sides_list_property">
                                         <div class="sides_list_property_thumb">
                                             @if ($like->photo)
