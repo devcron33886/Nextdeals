@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Location;
+use App\Models\Tag;
 use Artesaos\SEOTools\Facades\SEOTools;
 
 class CategoryController extends Controller
@@ -15,6 +17,11 @@ class CategoryController extends Controller
         SEOTools::setCanonical('http://nextdeals.test/'.$category->slug);
         SEOTools::twitter()->setSite('@nextdeals');
 
-        return view('categories.show');
+        $query = $category->products()->with(['media','locations']);
+        $products=$query->paginate(12);
+        $tags=Tag::all();
+        $locations=Location::all();
+        
+        return view('categories.show',compact('products','category','tags','locations'));
     }
 }

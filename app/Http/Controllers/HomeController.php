@@ -19,7 +19,7 @@ class HomeController extends Controller
         TwitterCard::setSite('@code_sco');
         $categories = Category::all();
         $tags = Tag::all();
-        $latests = Product::latest()->get();
+        $latests = Product::latest()->with(['media','categories','tags'])->get();
 
         return view('welcome', compact('latests', 'categories', 'tags'));
     }
