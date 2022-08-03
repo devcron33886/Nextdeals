@@ -101,6 +101,7 @@ class Product extends Model implements HasMedia
     {
         return $query->where('created_at', '>', now()->subDays(15));
     }
+
     public function scopeMightAlsoLike($query)
     {
         return $query->inRandomOrder()->take(6);

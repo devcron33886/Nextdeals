@@ -17,11 +17,11 @@ class CategoryController extends Controller
         SEOTools::setCanonical('http://nextdeals.test/'.$category->slug);
         SEOTools::twitter()->setSite('@nextdeals');
 
-        $query = $category->products()->with(['media','locations']);
-        $products=$query->paginate(12);
-        $tags=Tag::all();
-        $locations=Location::all();
-        
-        return view('categories.show',compact('products','category','tags','locations'));
+        $query = $category->products()->with(['media', 'locations']);
+        $products = $query->paginate(12);
+        $tags = Tag::all();
+        $locations = Location::all();
+
+        return view('categories.show', compact('products', 'category', 'tags', 'locations'));
     }
 }

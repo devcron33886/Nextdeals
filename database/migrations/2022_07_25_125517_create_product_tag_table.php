@@ -18,6 +18,4 @@ return new class extends Migration
             $table->foreignId('tag_id')->nullable()->constrained();
         });
     }
-
-
 };
