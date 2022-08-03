@@ -77,7 +77,7 @@
                                                                         <input id="b1" class="radio-custom"
                                                                             name="where" type="radio">
                                                                         <label for="b1"
-                                                                            class="radio-custom-label">Atlanta</label>
+                                                                            class="radio-custom-label">{{ $location->name }}</label>
                                                                     </li>
                                                                 @endforeach
                                                             </ul>
@@ -104,15 +104,12 @@
                                                         <div class="inner_widget_link">
                                                             <ul class="no-ul-list filter-list">
                                                                 @foreach ($tags as $tag)
-                                                                    @if ($tag->id == $category->id)
-                                                                    @else
-                                                                        <li>
-                                                                            <input id="b1" class="radio-custom"
-                                                                                name="where" type="radio">
-                                                                            <label for="b1"
-                                                                                class="radio-custom-label">{{ $tag->name }}</label>
-                                                                        </li>
-                                                                    @endif
+                                                                    <li>
+                                                                        <input id="b1" class="radio-custom"
+                                                                            name="where" type="radio">
+                                                                        <label for="b1"
+                                                                            class="radio-custom-label">{{ $tag->name }}</label>
+                                                                    </li>
                                                                 @endforeach
 
                                                             </ul>
@@ -209,10 +206,10 @@
                                 </div>
                             </div>
                         @empty
-						<div class="col-lg-12 col-md-12">
-							<div class="alert alert-warning">
-								<h4>No products found</h4>
-							</div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="alert alert-warning">
+                                    <h4>No products found</h4>
+                                </div>
                         @endforelse
 
 
