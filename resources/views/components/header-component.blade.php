@@ -13,10 +13,6 @@
                         <li><a href="{{ route('category-show',$category->slug) }}">{{ $category->name }}</a>
                     @endforeach
 
-                    <li><a href="{{ route('about-us') }}">About us</a></li>
-                    <li><a href="{{ route('contact.index') }}">Contact us</a></li>
-
-
                 </ul>
 
                 <ul class="nav-menu nav-menu-social align-to-right">
